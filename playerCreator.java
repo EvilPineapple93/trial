@@ -3,6 +3,19 @@ package playerCreator;
 import java.util.Scanner;
 
 public class PlayerCreator {
+	
+	int[] cavalier = {8,6,4,7,9,3,5};
+	int[] paladin = {7,5,8,3,6,9,4};
+	int[] cleric = {7,4,9,5,8,6,3};
+	int[] druid = {7,4,8,5,6,9,3};
+	int[] fighter = {9,3,5,7,8,6,4};
+	int[] barbarian = {9,3,5,7,8,6,4};
+	int[] ranger = {7,6,8,5,9,4,3};
+	int[] mu = {4,9,7,8,6,5,3};
+	int[] illusionist = {3,8,7,9,5,6,4};
+	int[] thief = {6,5,3,9,7,4,8};
+	int[] assassin = {6,7,4,9,8,3,5};
+	int[] monk = {7,5,9,8,6,4,3};
 
 	public static void main(String[] args) {
 		Scanner keyb = new Scanner(System.in);
@@ -494,5 +507,30 @@ public class PlayerCreator {
 				
 		}
 		return false;
+	}
+	public int[] optimizeArray(int[] a, int[] b){
+		int[] x = new int[7];
+		for(int i = 0; i<x.length; i++){
+			if(a[i] < b[i])
+				x[i] = b[i];
+			else
+				x[i] = a[i];
+		}
+		return x;
+	}
+	
+	public int[] optimizeArray(int[] a, int[] b, int[] c){
+		
+		int[] x = new int[7];
+		
+		for(int i = 0; i < x.length; i++){
+			if(a[i] >= b[i] && a[i] >= c[i])
+				x[i] = a[i];
+			else if(b[i] >= a[i] && b[i] >= c[i])
+				x[i] = b[i];
+			else
+				x[i] = c[i];
+		}
+		return x;
 	}
 }
